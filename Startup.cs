@@ -1,5 +1,6 @@
 using System.IO;
 using System.Text;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -58,6 +59,7 @@ namespace MyAppBack
 
       services.AddCors();
 
+      services.AddAutoMapper(typeof(UserRepository).Assembly);
       services.AddScoped<IAuthRepository, AuthRepository>();
       services.AddScoped<IUserRepository, UserRepository>();
       services.AddScoped<IQrRepository, QrRepository>();
