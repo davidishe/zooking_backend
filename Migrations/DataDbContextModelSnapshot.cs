@@ -18,7 +18,7 @@ namespace MyAppBack.Migrations
 
             modelBuilder.Entity("MyAppBack.Models.Item", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ItemId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -41,10 +41,10 @@ namespace MyAppBack.Migrations
                     b.Property<string>("Token")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.HasKey("ItemId");
 
                     b.HasIndex("UserId");
 
@@ -87,7 +87,9 @@ namespace MyAppBack.Migrations
                 {
                     b.HasOne("MyAppBack.Models.User", null)
                         .WithMany("Items")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -39,5 +39,6 @@ namespace MyAppBack.Controllers
       var userToReturn = _mapper.Map<UserForDetailedDto>(user);
       return Ok(userToReturn);
     }
+
   }
 }

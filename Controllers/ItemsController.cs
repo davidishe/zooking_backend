@@ -56,7 +56,7 @@ namespace MyAppBack.Controllers
     public async Task<ActionResult> CreateItem(Item item)
     {
       item = LinkShortener(item);
-
+      Console.WriteLine("This is item: " + item.EnrolledDate);
       item.Counter = 0;
       item.QrPath = _qr.CreateQrCode(item.ShortLink);
 
@@ -71,7 +71,7 @@ namespace MyAppBack.Controllers
     [Route("get-item/")]
     public IActionResult GetItemById([FromQuery(Name = "id")] int id)
     {
-      return Ok(_context.Items.Where(x => x.Id == id).FirstOrDefault());
+      return Ok(_context.Items.Where(x => x.ItemId == id).FirstOrDefault());
     }
 
     [AllowAnonymous]
@@ -79,7 +79,7 @@ namespace MyAppBack.Controllers
     [Route("delete-item/")]
     public bool DeleteItem([FromQuery(Name = "id")] int id)
     {
-      Item item = _context.Items.Where(x => x.Id == id).FirstOrDefault();
+      Item item = _context.Items.Where(x => x.ItemId == id).FirstOrDefault();
       _context.Items.Remove(item);
       _context.SaveChanges();
       return _context.SaveChanges() > 0 ? true : false;
@@ -89,14 +89,9 @@ namespace MyAppBack.Controllers
     [Route("update-item/")]
     public bool UpdateItem([FromBody] Item item)
     {
-      Item existingItem = _context.Items.Where(x => x.Id == item.Id).FirstOrDefault();
-      if (existingItem.Id > 0)
+      Item existingItem = _context.Items.Where(x => x.ItemId == item.ItemId).FirstOrDefault();
+      if (existingItem.ItemId > 0)
       {
-        // existingItem.City = item.City;
-        // existingItem.Email = item.Email;
-        // existingItem.LastName = item.LastName;
-        // existingItem.FirstName = item.FirstName;
-        // existingItem.PhoneNumber = item.PhoneNumber;
         existingItem.Link = item.Link;
         existingItem.EnrolledDate = item.EnrolledDate;
       }

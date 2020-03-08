@@ -9,7 +9,7 @@ namespace MyAppBack.Models
   public class Item
   {
     [Key]
-    public int Id { get; set; }
+    public int ItemId { get; set; }
     [Required]
     public string Link { get; set; }
     public string? ShortLink { get; set; }
@@ -18,7 +18,6 @@ namespace MyAppBack.Models
     public DateTime EnrolledDate { get; set; }
     public int? Counter { get; set; }
     public string? QrPath { get; set; }
-    public User User { get; set; }
     public int UserId { get; set; }
   }
 

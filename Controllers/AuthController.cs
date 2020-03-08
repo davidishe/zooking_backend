@@ -52,7 +52,7 @@ namespace MyAppBack.Controllers
       };
 
       var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
-      return StatusCode(201);
+      return Ok(201);
 
     }
 
@@ -61,8 +61,6 @@ namespace MyAppBack.Controllers
     [Route("login")]
     public async Task<IActionResult> Login([FromBody] UserForLoginDto userForLoginDto)
     {
-      // string username = userForLoginDto.username.ToString().ToLower();
-      // Console.WriteLine(username);
 
       var userFromRepo = await _repo.Login(
         userForLoginDto.username.ToLower(),
@@ -94,7 +92,8 @@ namespace MyAppBack.Controllers
       var token = tokenHandler.CreateToken(tokenDescriptor);
       return Ok(new
       {
-        token = tokenHandler.WriteToken(token)
+        token = tokenHandler.WriteToken(token),
+        userFromRepo.UserId
       });
     }
 

@@ -48,7 +48,7 @@ namespace MyAppBack.Controllers
     public bool UpdateItem([FromBody] Item item)
     {
       Item existingItem = _context.Items.Where(x => x.Token == item.Token).FirstOrDefault();
-      if (existingItem.Id > 0)
+      if (existingItem.ItemId > 0)
       {
         existingItem.Link = item.Link;
         existingItem.EnrolledDate = item.EnrolledDate;

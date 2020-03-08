@@ -6,7 +6,7 @@ namespace MyAppBack.Dtos
   {
 
     [Key]
-    public int id { get; set; }
+    public int UserId { get; set; }
 
     [Required]
     [StringLength(100, MinimumLength = 4, ErrorMessage = "Логин должен быть от 4 до 100 символов")]

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyAppBack.Migrations
 {
-    public partial class newM : Migration
+    public partial class newb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,7 +30,7 @@ namespace MyAppBack.Migrations
                 name: "Items",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    ItemId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Link = table.Column<string>(nullable: false),
                     ShortLink = table.Column<string>(nullable: true),
@@ -38,17 +38,17 @@ namespace MyAppBack.Migrations
                     EnrolledDate = table.Column<DateTime>(nullable: false),
                     Counter = table.Column<int>(nullable: true),
                     QrPath = table.Column<string>(nullable: true),
-                    UserId = table.Column<int>(nullable: true)
+                    UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Items", x => x.Id);
+                    table.PrimaryKey("PK_Items", x => x.ItemId);
                     table.ForeignKey(
                         name: "FK_Items_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "UserId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

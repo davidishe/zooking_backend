@@ -10,6 +10,7 @@ namespace MyAppBack.Data
     void Delete<T>(T entity) where T : class;
     Task<bool> SaveAll();
     Task<User> GetUser(int id);
+    Task<User> GetUserIdByEmail(string email);
     Task<IEnumerable<User>> GetUsers();
   }
 }

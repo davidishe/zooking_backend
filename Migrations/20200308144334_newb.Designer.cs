@@ -9,8 +9,8 @@ using MyAppBack.Data;
 namespace MyAppBack.Migrations
 {
     [DbContext(typeof(DataDbContext))]
-    [Migration("20200307085737_newM")]
-    partial class newM
+    [Migration("20200308144334_newb")]
+    partial class newb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,7 +20,7 @@ namespace MyAppBack.Migrations
 
             modelBuilder.Entity("MyAppBack.Models.Item", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ItemId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -43,10 +43,10 @@ namespace MyAppBack.Migrations
                     b.Property<string>("Token")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.HasKey("ItemId");
 
                     b.HasIndex("UserId");
 
@@ -89,7 +89,9 @@ namespace MyAppBack.Migrations
                 {
                     b.HasOne("MyAppBack.Models.User", null)
                         .WithMany("Items")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
