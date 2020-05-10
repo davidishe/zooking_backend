@@ -1,16 +1,16 @@
-using System.IO;
-using System.Text;
 using AutoMapper;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
 using MyAppBack.Data;
+using MyAppBack.Data.Contexts;
+using MyAppBack.Extensions;
+using MyAppBack.Helpers;
+using MyAppBack.Middleware;
 using MyAppBack.Models;
+using StackExchange.Redis;
 
 namespace MyAppBack
 {
@@ -18,27 +18,24 @@ namespace MyAppBack
   {
     public Startup(IConfiguration configuration)
     {
-      Configuration = configuration;
+      _config = configuration;
     }
 
-    public IConfiguration Configuration { get; }
+    public IConfiguration _config { get; }
 
 
     public void ConfigureDevelopmentServices(IServiceCollection services)
     {
-      services.AddDbContext<DataDbContext>(options =>
-      options.UseSqlite(
-          Configuration.GetConnectionString("DefaultConnection")));
-
+      services.AddDbContext<DataDbContext>(options => options.UseSqlite(_config.GetConnectionString("DefaultConnection")));
+      services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlite(_config.GetConnectionString("IdentityConnection")));
+      // services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
 
       ConfigureServices(services);
     }
 
     public void ConfigureProductionServices(IServiceCollection services)
     {
-      services.AddDbContext<DataDbContext>(options =>
-        options.UseSqlServer(
-            Configuration.GetConnectionString("DefaultConnection")));
+      services.AddDbContext<DataDbContext>(options => options.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
 
       ConfigureServices(services);
     }
@@ -46,9 +43,14 @@ namespace MyAppBack
     public void ConfigureServices(IServiceCollection services)
     {
 
-      var appSettings =
-          Configuration.GetSection("AppSettings");
+      var appSettings = _config.GetSection("AppSettings");
       services.Configure<AppSettings>(appSettings);
+
+      services.AddSingleton<IConnectionMultiplexer>(c =>
+      {
+        var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
+        return ConnectionMultiplexer.Connect(configuration);
+      });
 
       services.AddControllers()
         .AddNewtonsoftJson(opt =>
@@ -58,40 +60,31 @@ namespace MyAppBack
         });
 
       services.AddCors();
-
-      services.AddAutoMapper(typeof(UserRepository).Assembly);
-      services.AddScoped<IAuthRepository, AuthRepository>();
-      services.AddScoped<IUserRepository, UserRepository>();
-      services.AddScoped<IQrRepository, QrRepository>();
-
-      services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-      .AddJwtBearer(options =>
+      var mappingConfig = new MapperConfiguration(mc =>
       {
-        options.TokenValidationParameters = new TokenValidationParameters()
-        {
-          ValidateIssuerSigningKey = true,
-          IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII
-            .GetBytes(Configuration.GetSection("AppKeys:Token").Value)),
-          ValidateAudience = false,
-          ValidateIssuer = false
-        };
+        mc.AddProfile(new AutoMapperProfiles());
       });
+
+      IMapper mapper = mappingConfig.CreateMapper();
+      services.AddSingleton(mapper);
+      services.AddAutoMapper(typeof(Startup));
+
+      services.AddIdentityServices(_config);
+      services.AddApplicationServices();
 
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-      if (env.IsDevelopment())
-      {
-        app.UseDeveloperExceptionPage();
-      }
 
-      // app.UseHttpsRedirection();
+      app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+      app.UseMiddleware<ExceptionMiddleware>();
+      app.UseStatusCodePagesWithReExecute("/errors/{0}");
+
       app.UseRouting();
       app.UseAuthentication();
       app.UseAuthorization();
-      app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
       app.UseDefaultFiles();
       app.UseStaticFiles();
       app.UseEndpoints(endpoints =>
