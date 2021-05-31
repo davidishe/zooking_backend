@@ -1,0 +1,43 @@
+{
+  "deploy.reloaded": {
+    "packages": [
+      {
+        "name": "Version 2.0.0",
+        "description": "Haven app",
+        "files": [
+          "/publish/**"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "type": "sftp",
+        "name": "Linux",
+        "description": "SFTP folder",
+        "host": "194.67.111.206",
+        "port": 4444,
+        "user": "root",
+        "password": "fohmoh3ohYuo",
+        "dir": "/var/apps/haven/",
+        "mappings": {
+          "/publish/**": "/"
+        }
+      }
+    ]
+  },
+  "sqltools.connections": [
+    {
+      "database": "appbasedata",
+      "driver": "MySQL",
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "name": "localhost",
+      "password": "Vseprosto12345!+",
+      "port": 3306,
+      "previewLimit": 50,
+      "server": "localhost",
+      "username": "root"
+    }
+  ]
+}

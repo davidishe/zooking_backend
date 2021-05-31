@@ -1,0 +1,76 @@
+[
+  {
+    "DisplayName": "David",
+    "Email": "admin@admin.ru",
+    "UserName": "admin@admin.ru",
+    "Address": 
+    {
+      "FirstName": "David",
+      "LastName": "Earth",
+      "Street": "Bayker",
+      "City": "London",
+      "House": "22",
+      "ZipCode": "444213"
+    }
+  },
+  {
+    "DisplayName": "Владимир Владимиров",
+    "Email": "curator@curator.ru",
+    "UserName": "curator@curator.ru",
+    "Address": 
+    {
+      "FirstName": "Владимир Владимиров",
+      "LastName": "Earth",
+      "Street": "Bayker",
+      "City": "London",
+      "House": "22",
+      "ZipCode": "444213"
+    }
+  },
+  {
+    "DisplayName": "Маша Иванова",
+    "Email": "volonter@volonter.ru",
+    "UserName": "volonter@volonter.ru",
+    "Address": 
+    {
+      "FirstName": "Vladimir",
+      "LastName": "Earth",
+      "Street": "Bayker",
+      "City": "Tbilisi",
+      "House": "22",
+      "ZipCode": "444213"
+    }
+  },
+  {
+    "DisplayName": "Константин Константинопольский",
+    "Email": "feeder@feeder.ru",
+    "UserName": "feeder@feeder.ru",
+    "Address": 
+    {
+      "FirstName": "Vladimir",
+      "LastName": "Earth",
+      "Street": "Bayker",
+      "City": "Moscow",
+      "House": "22",
+      "ZipCode": "444213"
+    }
+  },
+  {
+    "DisplayName": "Дмитрий Дмитриев",
+    "Email": "user@user.ru",
+    "UserName": "user@user.ru",
+    "Address": 
+    {
+      "FirstName": "Vladimir",
+      "LastName": "Earth",
+      "Street": "Bayker",
+      "City": "Amsterdam",
+      "House": "22",
+      "ZipCode": "444213"
+    }
+  }
+
+]
+
+
+

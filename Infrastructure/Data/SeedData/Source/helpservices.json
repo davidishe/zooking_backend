@@ -1,0 +1,32 @@
+[
+  {
+    "Description": "Help servi example.",
+    "HelpServiceTypeId": 2,
+    "RegionId": 1
+  },
+  {
+    "Description": "Some help",
+    "HelpServiceTypeId": 2,
+    "RegionId": 2
+  },
+  {
+    "Description": "Help kind example entity.",
+    "HelpServiceTypeId": 3,
+    "RegionId": 4
+  },
+  {
+    "Description": "Example entity.",
+    "HelpServiceTypeId": 4,
+    "RegionId": 3
+  },
+  {
+    "Description": "Help for something.",
+    "HelpServiceTypeId": 1,
+    "RegionId": 2
+  },
+  {
+    "Description": "Give some help for shelter.",
+    "HelpServiceTypeId": 2,
+    "RegionId": 1
+  }
+]
