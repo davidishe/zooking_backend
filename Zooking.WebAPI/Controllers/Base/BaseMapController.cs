@@ -6,23 +6,27 @@ using Core.Models;
 using Infrastructure.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using AutoMapper;
 
 namespace WebAPI.Controllers
 {
 
   [ApiController]
   [Route("api/[controller]")]
-  public class BaseController<TEntity> : ControllerBase
+  public class BaseMapController<TEntity, TDto> : ControllerBase
     where TEntity : BaseEntity
+    where TDto : BaseDto
   {
 
     private readonly IGenericRepository<TEntity> _repo;
-    private readonly ILogger<BaseController<TEntity>> _logger;
+    private readonly ILogger<BaseMapController<TEntity, TDto>> _logger;
+    private readonly IMapper _mapper;
 
-    public BaseController(IGenericRepository<TEntity> repo, ILogger<BaseController<TEntity>> logger)
+    public BaseMapController(IGenericRepository<TEntity> repo, ILogger<BaseMapController<TEntity, TDto>> logger, IMapper mapper)
     {
       _repo = repo;
       _logger = logger;
+      _mapper = mapper;
     }
 
 
@@ -32,8 +36,11 @@ namespace WebAPI.Controllers
     {
       await SetTimeOut();
       var spec = new BaseSpecification<TEntity>();
-      var entitys = await _repo.ListAsync(spec);
-      return Ok(entitys);
+      var entitis = await _repo.ListAsync(spec);
+      // var mappedEntitis = _mapper.Map<IReadOnlyCollection<TEntity>, IReadOnlyCollection<TDto>>(entitis);
+      var mappedEntitis = _mapper.Map<IReadOnlyList<TEntity>, IReadOnlyList<TDto>>(entitis);
+
+      return Ok(mappedEntitis);
     }
 
 

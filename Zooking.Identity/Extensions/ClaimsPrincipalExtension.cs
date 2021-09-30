@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Security.Claims;
 
-namespace Bot.Identity.Extensions
+namespace Zooking.Identity.Extensions
 {
   public static class ClaimsPrincipalExtension
   {

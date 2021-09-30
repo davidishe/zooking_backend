@@ -3,7 +3,7 @@ using Core.External.Contracts;
 using Core.Models.Contracts;
 using Core.Models.Contracts.Google;
 
-namespace Bot.Identity.Services
+namespace Zooking.Identity.Services
 {
   public interface IGoogleAuthService
   {

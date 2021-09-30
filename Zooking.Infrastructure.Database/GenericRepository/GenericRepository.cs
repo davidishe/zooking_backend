@@ -3,8 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Core.Models;
-using Bot.Infrastructure.Database;
-using Bot.Infrastructure.Specifications;
+using Zooking.Infrastructure.Database;
+using Zooking.Infrastructure.Specifications;
 using System;
 using Microsoft.Extensions.Logging;
 
@@ -13,13 +13,13 @@ namespace Infrastructure.Database
   public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
   {
 
-    private readonly AppDbContext _context;
+    private readonly DataContext _context;
     private readonly ILogger<GenericRepository<T>> _logger;
 
 
 
     public GenericRepository(
-      AppDbContext context,
+      DataContext context,
       ILogger<GenericRepository<T>> logger
     )
     {

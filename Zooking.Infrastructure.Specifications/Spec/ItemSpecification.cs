@@ -2,7 +2,7 @@ using System;
 using Core.Helpers;
 using Core.Models;
 
-namespace Bot.Infrastructure.Specifications
+namespace Zooking.Infrastructure.Specifications
 {
   public class ItemSpecification : BaseSpecification<Item>
   {

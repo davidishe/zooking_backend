@@ -12,7 +12,7 @@ using Core.Options;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace Bot.Identity.Services
+namespace Zooking.Identity.Services
 {
   public class RoleManagerService : IRoleManagerService
   {

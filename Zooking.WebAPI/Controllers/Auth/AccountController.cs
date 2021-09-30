@@ -13,10 +13,10 @@ using Infrastructure.Helpers;
 using Core.Identity;
 using Core.Models.Contracts;
 using Infrastructure.Services;
-using Bot.Identity.Services;
-using Bot.Identity;
-using Bot.Core.Responses;
-using Bot.Identity.Extensions;
+using Zooking.Identity.Services;
+using Zooking.Identity;
+using Zooking.Core.Responses;
+using Zooking.Identity.Extensions;
 
 namespace WebAPI.Controllers
 {

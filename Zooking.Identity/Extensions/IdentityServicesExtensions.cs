@@ -7,9 +7,9 @@ using Microsoft.IdentityModel.Tokens;
 using Core.Identity;
 using Core.Models.Identity;
 using Core.Options;
-using Bot.Identity.Services;
+using Zooking.Identity.Services;
 
-namespace Bot.Identity.Database.Extensions
+namespace Zooking.Identity.Database.Extensions
 {
   public static class IdentityServicesExtensions
 

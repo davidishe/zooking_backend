@@ -6,7 +6,7 @@ using Core.Options;
 using Core.Models.Contracts;
 using Microsoft.Extensions.Configuration;
 
-namespace Bot.Identity.Services
+namespace Zooking.Identity.Services
 {
   public class FacebookAuthService : IFacebookAuthService
   {

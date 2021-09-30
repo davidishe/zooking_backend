@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Core.Identity;
 
-namespace Bot.Identity.Extensions
+namespace Zooking.Identity.Extensions
 {
   public static class UserManagerExtensions
   {

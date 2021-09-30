@@ -1,9 +1,9 @@
 using Core.Dtos;
 using FluentValidation;
 
-namespace Bot.Core.Validators
+namespace Zooking.Core.Validators
 {
-  public class MemberValidator : AbstractValidator<MemberDto>
+  public class MemberValidator : AbstractValidator<AssistantDto>
   {
     public MemberValidator()
     {

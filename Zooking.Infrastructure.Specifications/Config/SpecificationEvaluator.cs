@@ -2,7 +2,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Core.Models;
 
-namespace Bot.Infrastructure.Specifications
+namespace Zooking.Infrastructure.Specifications
 {
   public class SpecificationEvaluator<TEntity> where TEntity : BaseEntity
   {

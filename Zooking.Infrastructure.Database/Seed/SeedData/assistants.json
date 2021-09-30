@@ -1,0 +1,39 @@
+[
+  {
+    "Name": "Дмитрий Даниилов",
+    "Description": "Привет мир",
+    "MainPhoto": "photo_1.png",
+    "IsEnabled": true
+  },
+  {  
+    "Name": "Люда Иванова",
+    "Description": "Привет о дивный и чудный мир",
+    "MainPhoto": "photo_2.png",
+    "IsEnabled": true
+  },
+  {
+    "Name": "Петр Безухов",
+    "Description": "Привет планета",
+    "MainPhoto": "photo_3.png",
+    "IsEnabled": false
+  },
+  {
+    "Name": "Константин Константинопольский",
+    "Description": "Описательное описалово",
+    "MainPhoto": "photo_4.png",
+    "IsEnabled": false
+  },
+  {
+    "Name": "Петр Безухов",
+    "Description": "Привет планета",
+    "MainPhoto": "photo_5.png",
+    "IsEnabled": false
+  },
+  {
+    "Name": "Константин Константинопольский",
+    "Description": "Описательное описалово",
+    "MainPhoto": "photo_6.png",
+    "IsEnabled": false
+  }
+]
+

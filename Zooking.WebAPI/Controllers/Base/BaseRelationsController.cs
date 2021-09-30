@@ -1,7 +1,7 @@
 // using System.Collections.Generic;
 // using System.Threading.Tasks;
-// using Bot.Core.Dtos;
-// using Bot.Infrastructure.Specifications;
+// using Zooking.Core.Dtos;
+// using Zooking.Infrastructure.Specifications;
 // using Core.Models;
 // using Infrastructure.Database;
 // using Microsoft.AspNetCore.Authorization;

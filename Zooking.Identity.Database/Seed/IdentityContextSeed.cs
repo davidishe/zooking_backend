@@ -9,8 +9,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Core.Identity;
 using Core.Models.Identity;
-using Bot.Identity;
-using Bot.Identity.Database;
+using Zooking.Identity;
+using Zooking.Identity.Database;
 
 namespace Identity.Database.SeedData
 {
@@ -25,7 +25,7 @@ namespace Identity.Database.SeedData
 
         if (!context.UserPosition.Any())
         {
-          var itemsData = File.ReadAllText(path + @"/Data/SeedData/Source/userpositions.json");
+          var itemsData = File.ReadAllText(path + @"/Seed/SeedData/userpositions.json");
           var items = JsonSerializer.Deserialize<List<UserPosition>>(itemsData);
           foreach (var item in items)
           {
@@ -38,7 +38,7 @@ namespace Identity.Database.SeedData
         if (!userManager.Users.Any())
         {
 
-          var itemsData = File.ReadAllText(path + @"/Data/SeedData/Source/users.json");
+          var itemsData = File.ReadAllText(path + @"/Seed/SeedData/users.json");
           var users = JsonSerializer.Deserialize<List<HavenAppUser>>(itemsData);
           foreach (var user in users)
           {

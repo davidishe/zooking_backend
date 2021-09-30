@@ -2,7 +2,7 @@ using System;
 using Core.Models;
 using Core.Helpers;
 
-namespace Bot.Infrastructure.Specifications
+namespace Zooking.Infrastructure.Specifications
 {
   public class DocForCountSpecification : BaseSpecification<Item>
   {

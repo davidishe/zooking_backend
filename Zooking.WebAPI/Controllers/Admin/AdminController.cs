@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Core.Dtos;
 using Core.Identity;
-using Bot.Identity.Services;
+using Zooking.Identity.Services;
 
 namespace WebAPI.Controllers
 {

@@ -1,4 +1,4 @@
-namespace Bot.Core.Responses
+namespace Zooking.Core.Responses
 {
   public class ApiException : ApiResponse
   {

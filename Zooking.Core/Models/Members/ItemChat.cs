@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using Bot.Core.Dtos;
+using Zooking.Core.Dtos;
 using Newtonsoft.Json;
 
 namespace Core.Models

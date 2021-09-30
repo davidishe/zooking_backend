@@ -1,4 +1,4 @@
-namespace Bot.Core.Dtos
+namespace Zooking.Core.Dtos
 {
   public class MemberChatDto : BaseDto
   {

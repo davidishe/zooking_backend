@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
-using Bot.Core.Dtos;
+using Zooking.Core.Dtos;
 using Core.Models;
 using Infrastructure.Database;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Controllers;
 
-namespace Bot.WebAPI.Controllers.Items
+namespace Zooking.WebAPI.Controllers.Items
 {
 
   [AllowAnonymous]

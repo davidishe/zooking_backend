@@ -5,7 +5,7 @@ using Infrastructure.Services;
 using Infrastructure.Services.ResponseCacheService;
 using Infrastructure.Database;
 using Infrastructure.Database.UnitOfWork;
-using Bot.Core.Responses;
+using Zooking.Core.Responses;
 
 namespace Infrastructure.Extensions
 {

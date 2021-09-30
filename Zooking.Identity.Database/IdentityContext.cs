@@ -5,7 +5,7 @@ using Core.Domain;
 using Core.Identity;
 using Core.Models.Identity;
 
-namespace Bot.Identity.Database
+namespace Zooking.Identity.Database
 {
   public class IdentityContext : IdentityDbContext<HavenAppUser, Role, int, IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>
   {

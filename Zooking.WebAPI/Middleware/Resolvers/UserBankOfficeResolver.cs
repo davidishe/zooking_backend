@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Security.Claims;
 using AutoMapper;
-using Bot.Infrastructure.Specifications;
+using Zooking.Infrastructure.Specifications;
 using Core.Dtos;
 using Core.Identity;
 using Core.Models;

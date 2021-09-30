@@ -1,13 +1,13 @@
 using System.Threading.Tasks;
-using Bot.Core.Dtos;
-using Bot.Core.Models.Members;
+using Zooking.Core.Dtos;
+using Zooking.Core.Models.Members;
 using Core.Models;
 using Infrastructure.Database;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Controllers;
 
-namespace Bot.WebAPI.Controllers.Items
+namespace Zooking.WebAPI.Controllers.Items
 {
 
   [AllowAnonymous]
@@ -16,18 +16,18 @@ namespace Bot.WebAPI.Controllers.Items
 
     private readonly IGenericRepository<MemberChat> _memberChatRepo;
     private readonly IGenericRepository<Chat> _chatRepo;
-    private readonly IGenericRepository<Member> _memberRepo;
+    private readonly IGenericRepository<Assistant> _assistantRepo;
 
 
     public MemberChatController(
         IGenericRepository<MemberChat> memberChatRepo,
         IGenericRepository<Chat> chatRepo,
-        IGenericRepository<Member> memberRepo
+        IGenericRepository<Assistant> assistantRepo
     )
     {
       _memberChatRepo = memberChatRepo;
       _chatRepo = chatRepo;
-      _memberRepo = memberRepo;
+      _assistantRepo = assistantRepo;
 
     }
 
@@ -42,8 +42,8 @@ namespace Bot.WebAPI.Controllers.Items
       {
         ChatId = itemDto.ChatId,
         Chat = await _chatRepo.GetByIdAsync(itemDto.ChatId),
-        MemberId = itemDto.ChatId,
-        Member = await _memberRepo.GetByIdAsync(itemDto.Memberid)
+        AssistantId = itemDto.ChatId,
+        Assistant = await _assistantRepo.GetByIdAsync(itemDto.Memberid)
       };
 
       var itemToReturn = await _memberChatRepo.AddEntityAsync(item);

@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Core.Models.Contracts.Google;
 using System;
 
-namespace Bot.Identity.Services
+namespace Zooking.Identity.Services
 {
   public class GoogleAuthService : IGoogleAuthService
   {

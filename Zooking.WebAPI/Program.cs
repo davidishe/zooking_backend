@@ -8,10 +8,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Core.Identity;
 using Core.Models.Identity;
-using Bot.Infrastructure.Database;
+using Zooking.Infrastructure.Database;
 using Infrastructure.Database.SeedData;
-using Bot.Identity;
-using Bot.Identity.Database;
+using Zooking.Identity;
+using Zooking.Identity.Database;
 using Identity.Database.SeedData;
 
 namespace WebAPI
@@ -36,7 +36,7 @@ namespace WebAPI
           await IdentityContextSeed.SeedUsersAsync(userManager, roleManager, loggerFactory, identityContext);
           await identityContext.Database.MigrateAsync();
 
-          var dataContext = services.GetRequiredService<AppDbContext>();
+          var dataContext = services.GetRequiredService<DataContext>();
           await DataContextSeed.SeedDataAsync(dataContext, loggerFactory);
           await dataContext.Database.MigrateAsync();
 

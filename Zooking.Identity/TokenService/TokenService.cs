@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Core.Identity;
 
-namespace Bot.Identity
+namespace Zooking.Identity
 {
   public class TokenService : ITokenService
   {

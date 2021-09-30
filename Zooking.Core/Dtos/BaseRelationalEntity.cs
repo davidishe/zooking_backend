@@ -1,6 +1,6 @@
 using Core.Models;
 
-namespace Bot.Core.Dtos
+namespace Zooking.Core.Dtos
 {
   public class BaseRelationalEntity : BaseEntity
   {

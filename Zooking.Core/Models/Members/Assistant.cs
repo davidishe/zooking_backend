@@ -1,25 +1,25 @@
 using System;
 using System.Collections.Generic;
-using Bot.Core.Models.Members;
+using Zooking.Core.Models.Members;
 
 namespace Core.Models
 {
-  public class Member : BaseEntity
+  public class Assistant : BaseEntity
   {
-    public Member()
+    public Assistant()
     {
     }
 
-    public Member(string name, bool isEnabled, DateTime birthdayDate)
+    public Assistant(string name, bool isEnabled, string mainPhoto)
     {
       Name = name;
       IsEnabled = isEnabled;
-      BirthdayDate = birthdayDate;
+      MainPhoto = mainPhoto;
     }
 
     public string Name { get; set; }
     public bool IsEnabled { get; set; }
-    public DateTime BirthdayDate { get; set; }
+    public string MainPhoto { get; set; }
     public virtual ICollection<MemberChat>? MemberChats { get; set; }
 
   }

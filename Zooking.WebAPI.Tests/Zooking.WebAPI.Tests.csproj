@@ -6,9 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bot.WebAPI\WebAPI.csproj"/>
-    <ProjectReference Include="..\Bot.Infrastructure.Database\Bot.Infrastructure.Database.csproj"/>
-    <ProjectReference Include="..\Bot.Infrastructure.Specifications\Bot.Infrastructure.Specifications.csproj"/>    
+    <ProjectReference Include="..\Zooking.WebAPI\WebAPI.csproj"/>
+    <ProjectReference Include="..\Zooking.Infrastructure.Database\Zooking.Infrastructure.Database.csproj"/>
+    <ProjectReference Include="..\Zooking.Infrastructure.Specifications\Zooking.Infrastructure.Specifications.csproj"/>    
   </ItemGroup>
 
   <ItemGroup>

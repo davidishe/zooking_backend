@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Core.Identity;
 
-namespace Bot.Identity
+namespace Zooking.Identity
 {
   public interface ITokenService
   {

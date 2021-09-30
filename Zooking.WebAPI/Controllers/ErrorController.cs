@@ -1,4 +1,4 @@
-using Bot.Core.Responses;
+using Zooking.Core.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers

@@ -10,7 +10,7 @@ using Core.Models.Contracts;
 using Core.Models.Identity;
 using Core.Options;
 
-namespace Bot.Identity.Services
+namespace Zooking.Identity.Services
 {
   public class IdentityService : IIdentityService
   {

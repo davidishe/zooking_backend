@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Core.External.Contracts;
 using Core.Models.Contracts;
 
-namespace Bot.Identity.Services
+namespace Zooking.Identity.Services
 {
   public interface IFacebookAuthService
   {

@@ -1,13 +1,13 @@
-using Bot.Core.Models.Members;
+using Zooking.Core.Models.Members;
 using Core.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace Bot.Infrastructure.Database
+namespace Zooking.Infrastructure.Database
 {
-  public class AppDbContext : DbContext
+  public class DataContext : DbContext
   {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    public DataContext(DbContextOptions<DataContext> options) : base(options)
     {
       Database.EnsureCreated();
     }
@@ -17,7 +17,7 @@ namespace Bot.Infrastructure.Database
     public DbSet<ItemSubType> ItemSubTypes { get; set; }
     public DbSet<Item> Items { get; set; }
     public DbSet<Region> Regions { get; set; }
-    public DbSet<Member> Members { get; set; }
+    public DbSet<Assistant> Assistants { get; set; }
     // public DbSet<ItemChat> ItemChats { get; set; }
     // public DbSet<MemberChat> MemberChats { get; set; }
 
@@ -29,7 +29,7 @@ namespace Bot.Infrastructure.Database
           .HasKey(cs => new { cs.ChatId, cs.ItemId });
 
       modelBuilder.Entity<MemberChat>()
-        .HasKey(cs => new { cs.ChatId, cs.MemberId });
+        .HasKey(cs => new { cs.ChatId, cs.AssistantId });
 
       base.OnModelCreating(modelBuilder);
       modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

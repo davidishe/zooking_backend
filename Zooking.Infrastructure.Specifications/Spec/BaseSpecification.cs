@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Infrastructure.Data.Config;
 
-namespace Bot.Infrastructure.Specifications
+namespace Zooking.Infrastructure.Specifications
 {
   public class BaseSpecification<T> : ISpecification<T>
   {

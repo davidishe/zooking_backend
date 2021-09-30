@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Threading.Tasks;
-using Bot.Infrastructure.Database;
+using Zooking.Infrastructure.Database;
 using Core.Models;
 
 namespace Infrastructure.Database.UnitOfWork
@@ -9,9 +9,9 @@ namespace Infrastructure.Database.UnitOfWork
   public class UnitOfWork : IUnitOfWork
   {
     private Hashtable _repositories;
-    private readonly AppDbContext _context;
+    private readonly DataContext _context;
 
-    public UnitOfWork(AppDbContext context)
+    public UnitOfWork(DataContext context)
     {
       _context = context;
     }

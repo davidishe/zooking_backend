@@ -4,7 +4,7 @@ using Core.Domain;
 using Core.Identity;
 using Core.Models.Contracts;
 
-namespace Bot.Identity.Services
+namespace Zooking.Identity.Services
 {
   public interface IUserPositionsService
   {

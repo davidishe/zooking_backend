@@ -10,7 +10,7 @@ using Core.Dtos;
 using Infrastructure.Helpers;
 using Core.Models;
 using Infrastructure.Database;
-using Bot.Infrastructure.Specifications;
+using Zooking.Infrastructure.Specifications;
 using Microsoft.Extensions.Logging;
 
 namespace WebAPI.Controllers

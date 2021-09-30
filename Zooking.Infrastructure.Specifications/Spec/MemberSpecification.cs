@@ -2,11 +2,11 @@ using System;
 using Core.Models;
 using Core.Helpers;
 
-namespace Bot.Infrastructure.Specifications
+namespace Zooking.Infrastructure.Specifications
 {
-  public class MemberSpecification : BaseSpecification<Member>
+  public class AssistantSpecification : BaseSpecification<Assistant>
   {
-    public MemberSpecification(UserParams userParams)
+    public AssistantSpecification(UserParams userParams)
     : base(x =>
           (string.IsNullOrEmpty(userParams.Search) || x.Name.ToLower().Contains(userParams.Search.ToLower())))
     {
@@ -29,7 +29,7 @@ namespace Bot.Infrastructure.Specifications
     }
 
 
-    public MemberSpecification()
+    public AssistantSpecification()
     : base()
     {
       AddInclude(x => x.MemberChats);
@@ -37,7 +37,7 @@ namespace Bot.Infrastructure.Specifications
 
 
 
-    public MemberSpecification(int id) : base(x => x.Id == id)
+    public AssistantSpecification(int id) : base(x => x.Id == id)
     {
       AddInclude(x => x.MemberChats);
     }

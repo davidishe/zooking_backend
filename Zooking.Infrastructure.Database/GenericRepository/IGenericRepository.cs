@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Bot.Infrastructure.Specifications;
+using Zooking.Infrastructure.Specifications;
 using Core.Models;
 
 namespace Infrastructure.Database

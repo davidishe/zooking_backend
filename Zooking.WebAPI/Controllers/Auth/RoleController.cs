@@ -9,8 +9,8 @@ using Core.Dtos;
 using Core.Identity;
 using Infrastructure.Services;
 using Core.Dtos.Identity;
-using Bot.Identity.Services;
-using Bot.Identity.Extensions;
+using Zooking.Identity.Services;
+using Zooking.Identity.Extensions;
 
 namespace WebAPI.Controllers
 {

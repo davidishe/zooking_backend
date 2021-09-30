@@ -1,13 +1,13 @@
 using Core.Models;
 
-namespace Bot.Core.Models.Members
+namespace Zooking.Core.Models.Members
 {
   public class MemberChat : BaseEntity
   {
 
     public int ChatId { get; set; }
     public Chat? Chat { get; set; }
-    public int MemberId { get; set; }
-    public Member? Member { get; set; }
+    public int AssistantId { get; set; }
+    public Assistant? Assistant { get; set; }
   }
 }

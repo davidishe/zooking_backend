@@ -12,9 +12,9 @@ using Core.Options;
 using System.Linq;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Bot.Identity.Database;
+using Zooking.Identity.Database;
 
-namespace Bot.Identity.Services
+namespace Zooking.Identity.Services
 {
   public class UserPositionsService : IUserPositionsService
   {

@@ -12,14 +12,11 @@ using WebAPI.Middleware;
 using StackExchange.Redis;
 using Infrastructure.Extensions;
 using Microsoft.Extensions.Hosting;
-using Hangfire;
 using Microsoft.OpenApi.Models;
-using NotificationService.Extensions;
-using Bot.Infrastructure.Database;
-using Bot.Services.Telegram.Extensions;
-using Bot.Identity;
-using Bot.Identity.Database.Extensions;
-using Bot.Identity.Database;
+using Zooking.Infrastructure.Database;
+using Zooking.Identity;
+using Zooking.Identity.Database.Extensions;
+using Zooking.Identity.Database;
 
 namespace WebAPI
 {
@@ -46,12 +43,8 @@ namespace WebAPI
     public void ConfigureServices(IServiceCollection services)
     {
 
-      services.AddDbContext<AppDbContext>(options => options.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
+      services.AddDbContext<DataContext>(options => options.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
       services.AddDbContext<IdentityContext>(options => options.UseSqlServer(_config.GetConnectionString("IdentityConnection")));
-
-
-      services.AddTelegramBotClient(_config);
-      services.AddNotificationExtension(_config);
 
 
       services.AddSingleton<IConnectionMultiplexer>(c =>
@@ -95,7 +88,7 @@ namespace WebAPI
       {
         app.UseDeveloperExceptionPage();
         app.UseSwagger();
-        app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Chtole bot v1"));
+        app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Chtole Zooking v1"));
       }
 
 
@@ -105,7 +98,6 @@ namespace WebAPI
       app.UseRouting();
       app.UseAuthentication();
       app.UseAuthorization();
-      app.UseHangfireDashboard("/dashboard");
       app.UseDefaultFiles();
       app.UseStaticFiles();
       app.UseStaticFiles(new StaticFileOptions

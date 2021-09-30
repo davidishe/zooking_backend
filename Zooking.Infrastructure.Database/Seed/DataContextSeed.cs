@@ -7,14 +7,14 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Core.Models;
-using Bot.Infrastructure.Database;
+using Zooking.Infrastructure.Database;
 
 namespace Infrastructure.Database.SeedData
 {
   public class DataContextSeed
   {
 
-    public static async Task SeedDataAsync(AppDbContext context, ILoggerFactory loggerFactory)
+    public static async Task SeedDataAsync(DataContext context, ILoggerFactory loggerFactory)
     {
       try
       {
@@ -56,13 +56,13 @@ namespace Infrastructure.Database.SeedData
           await context.SaveChangesAsync();
         }
 
-        if (!context.Members.Any())
+        if (!context.Assistants.Any())
         {
-          var itemsData = File.ReadAllText(path + @"/Seed/SeedData/members.json");
-          var items = JsonSerializer.Deserialize<List<Member>>(itemsData);
+          var itemsData = File.ReadAllText(path + @"/Seed/SeedData/assistants.json");
+          var items = JsonSerializer.Deserialize<List<Assistant>>(itemsData);
           foreach (var item in items)
           {
-            context.Members.Add(item);
+            context.Assistants.Add(item);
           }
           await context.SaveChangesAsync();
         }

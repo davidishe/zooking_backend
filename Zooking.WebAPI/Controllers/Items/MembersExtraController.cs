@@ -9,10 +9,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using Bot.Core.Validators;
+using Zooking.Core.Validators;
 using Infrastructure.Database;
-using Bot.Infrastructure.Specifications;
-using Bot.Identity.Extensions;
+using Zooking.Infrastructure.Specifications;
+using Zooking.Identity.Extensions;
 
 namespace WebAPI.Controllers
 {
@@ -22,13 +22,13 @@ namespace WebAPI.Controllers
   public class MembersExtraController : BaseApiController
   {
 
-    private readonly IGenericRepository<Member> _membersRepo;
+    private readonly IGenericRepository<Assistant> _membersRepo;
     private readonly IMapper _mapper;
     private readonly UserManager<HavenAppUser> _userManager;
 
 
     public MembersExtraController(
-      IGenericRepository<Member> membersRepo,
+      IGenericRepository<Assistant> membersRepo,
       IMapper mapper,
       UserManager<HavenAppUser> userManager
     )
@@ -44,13 +44,13 @@ namespace WebAPI.Controllers
     [AllowAnonymous]
     [HttpGet]
     [Route("all")]
-    public async Task<ActionResult<IReadOnlyList<MemberDto>>> GetAllMembers()
+    public async Task<ActionResult<IReadOnlyList<AssistantDto>>> GetAllMembers()
     {
 
-      var spec = new MemberSpecification();
+      var spec = new AssistantSpecification();
       var items = await _membersRepo.ListAsync(spec);
 
-      var data = _mapper.Map<IReadOnlyList<Member>, IReadOnlyList<MemberDto>>(items);
+      var data = _mapper.Map<IReadOnlyList<Assistant>, IReadOnlyList<AssistantDto>>(items);
       await SetTimeOut();
       return Ok(data);
     }
@@ -59,13 +59,13 @@ namespace WebAPI.Controllers
     [AllowAnonymous]
     [HttpGet("{id}")]
     [Route("getbyid")]
-    public async Task<ActionResult<MemberDto>> GetByIdAsync([FromQuery] int id)
+    public async Task<ActionResult<AssistantDto>> GetByIdAsync([FromQuery] int id)
     {
-      var spec = new MemberSpecification(id);
+      var spec = new AssistantSpecification(id);
       var item = await _membersRepo.GetEntityWithSpec(spec);
       await SetTimeOut();
 
-      var resultDto = _mapper.Map<Member, MemberDto>(item);
+      var resultDto = _mapper.Map<Assistant, AssistantDto>(item);
       return resultDto;
 
     }
@@ -84,7 +84,7 @@ namespace WebAPI.Controllers
     [AllowAnonymous]
     [HttpPost]
     [Route("create")]
-    public async Task<ActionResult<Member>> Create(MemberDto itemDto)
+    public async Task<ActionResult<Assistant>> Create(AssistantDto itemDto)
     {
 
       var user = await _userManager.FindByClaimsCurrentUser(HttpContext.User);
@@ -103,13 +103,11 @@ namespace WebAPI.Controllers
       }
 
 
-      var item = new Member
+      var item = new Assistant
       (
         name: itemDto.Name,
         isEnabled: true,
-        birthdayDate: new DateTime()
-      // TODO: get id from user object
-      // authorId: 2,
+        mainPhoto: "photo_1"
       );
 
       var itemToReturn = await _membersRepo.AddEntityAsync(item);
@@ -124,7 +122,7 @@ namespace WebAPI.Controllers
     [AllowAnonymous]
     [HttpPut]
     [Route("update")]
-    public async Task<ActionResult<Member>> UpdateProduct(MemberDto itemForUpdate)
+    public async Task<ActionResult<Assistant>> UpdateProduct(AssistantDto itemForUpdate)
     {
 
       var currentItem = _membersRepo.GetByIdAsync((int)itemForUpdate.Id).Result;
@@ -138,7 +136,7 @@ namespace WebAPI.Controllers
 
       var updatedItem = _membersRepo.Update(currentItem);
       if (updatedItem != null)
-        return Ok(_mapper.Map<Member, MemberDto>(updatedItem));
+        return Ok(_mapper.Map<Assistant, AssistantDto>(updatedItem));
       else
         return NotFound();
 

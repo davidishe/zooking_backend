@@ -1,10 +1,8 @@
-namespace Bot.Core.Dtos
+namespace Zooking.Core.Dtos
 {
   public class BaseDto
   {
-    // public int TEntityId { get; set; }
-    // public int TObjectId { get; set; }
-
+    public int? Id { get; set; }
 
   }
 }
