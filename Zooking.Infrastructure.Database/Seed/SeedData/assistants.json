@@ -3,37 +3,85 @@
     "Name": "Дмитрий Даниилов",
     "Description": "Привет мир",
     "MainPhoto": "photo_1.png",
-    "IsEnabled": true
+    "IsEnabled": true,
+    "Rating": 3.98,
+    "Address": 
+    {
+      "Street": "Бейкер стрит",
+      "City": "Лондон",
+      "House": "22",
+      "ZipCode": "440013"
+    }
   },
   {  
     "Name": "Люда Иванова",
     "Description": "Привет о дивный и чудный мир",
     "MainPhoto": "photo_2.png",
-    "IsEnabled": true
+    "IsEnabled": true,
+    "Rating": 4.7,
+    "Address": 
+    {
+      "Street": "Московская",
+      "City": "Лондон",
+      "House": "22",
+      "ZipCode": "449913"
+    }
   },
   {
     "Name": "Петр Безухов",
     "Description": "Привет планета",
     "MainPhoto": "photo_3.png",
-    "IsEnabled": false
+    "IsEnabled": false,
+    "Rating": 5.00,
+    "Address": 
+    {
+      "Street": "Малайзийская",
+      "City": "Токио",
+      "House": "4",
+      "ZipCode": "114213"
+    }
   },
   {
     "Name": "Константин Константинопольский",
     "Description": "Описательное описалово",
     "MainPhoto": "photo_4.png",
-    "IsEnabled": false
+    "IsEnabled": false,
+    "Rating": 4.98,
+    "Address": 
+    {
+      "Street": "Черная",
+      "City": "Кэйптаун",
+      "House": "22",
+      "ZipCode": "200413"
+    }
   },
   {
     "Name": "Петр Безухов",
     "Description": "Привет планета",
     "MainPhoto": "photo_5.png",
-    "IsEnabled": false
+    "IsEnabled": false,
+    "Rating": 3.98,
+    "Address": 
+    {
+      "Street": "Передовая",
+      "City": "Сан-Хосэ",
+      "House": "22",
+      "ZipCode": "777113"
+    }
   },
   {
     "Name": "Константин Константинопольский",
     "Description": "Описательное описалово",
     "MainPhoto": "photo_6.png",
-    "IsEnabled": false
+    "IsEnabled": false,
+    "Rating": 4.5,
+    "Address": 
+    {
+      "Street": "Барнаульская",
+      "City": "Таганрог",
+      "House": "22",
+      "ZipCode": "444213"
+    }
   }
 ]
 

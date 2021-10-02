@@ -22,6 +22,10 @@ namespace WebAPI.Helpers
 
 
       CreateMap<Assistant, AssistantDto>()
+        .ForMember(d => d.ZipCode, m => m.MapFrom(s => s.Address.ZipCode))
+        .ForMember(d => d.City, m => m.MapFrom(s => s.Address.City))
+        .ForMember(d => d.Street, m => m.MapFrom(s => s.Address.Street))
+        .ForMember(d => d.House, m => m.MapFrom(s => s.Address.House))
         .ForMember(d => d.MainPhoto, m => m.MapFrom<UrlPictureReslover>());
 
 

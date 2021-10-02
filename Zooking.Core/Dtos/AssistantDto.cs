@@ -9,7 +9,12 @@ namespace Core.Dtos
   {
     public string Name { get; set; }
     public bool IsEnabled { get; set; }
+    public double? Rating { get; set; }
     public string MainPhoto { get; set; }
+    public string Street { get; set; }
+    public string City { get; set; }
+    public string House { get; set; }
+    public string ZipCode { get; set; }
     public virtual ICollection<MemberChat>? MemberChats { get; set; }
   };
 }

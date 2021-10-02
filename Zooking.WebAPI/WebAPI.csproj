@@ -40,12 +40,17 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.1.5"/>
     <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.3" />
 
-
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Assets\**"/>
-    <Folder Include="Assets\Images\**"/>
+    <Folder Include="wwwroot/Assets/**"/>
   </ItemGroup>
+
+
+<ItemGroup> 
+  <Content Include="Assets\Images\**"> 
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory> 
+  </Content> 
+</ItemGroup>
 
 </Project>
