@@ -10,7 +10,7 @@ using Zooking.Infrastructure.Database;
 namespace Zooking.Infrastructure.Database.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20211002212416_mew_migration_data_5")]
+    [Migration("20211003101709_mew_migration_data_5")]
     partial class mew_migration_data_5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

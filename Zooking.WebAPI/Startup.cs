@@ -17,6 +17,7 @@ using Zooking.Infrastructure.Database;
 using Zooking.Identity;
 using Zooking.Identity.Database.Extensions;
 using Zooking.Identity.Database;
+using Core.Models;
 
 namespace WebAPI
 {
@@ -46,6 +47,7 @@ namespace WebAPI
       services.AddDbContext<DataContext>(options => options.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
       services.AddDbContext<IdentityContext>(options => options.UseSqlServer(_config.GetConnectionString("IdentityConnection")));
 
+      services.AddScoped<IDbRepository<Assistant>, DbRepository<Assistant>>();
 
       services.AddSingleton<IConnectionMultiplexer>(c =>
       {
