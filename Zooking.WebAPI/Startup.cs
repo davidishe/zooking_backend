@@ -18,6 +18,7 @@ using Zooking.Identity;
 using Zooking.Identity.Database.Extensions;
 using Zooking.Identity.Database;
 using Core.Models;
+using Microsoft.AspNet.OData.Extensions;
 
 namespace WebAPI
 {
@@ -79,6 +80,8 @@ namespace WebAPI
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "NotificationService", Version = "v1" });
       });
 
+      services.AddOData();
+
 
     }
 
@@ -113,7 +116,12 @@ namespace WebAPI
       {
         endpoints.MapControllers();
         endpoints.MapFallbackToController("Index", "Fallback");
+
+        endpoints.EnableDependencyInjection();
+        endpoints.Expand().Select().OrderBy();
       });
     }
+
+
   }
 }

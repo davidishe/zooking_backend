@@ -4,7 +4,6 @@
     <RootNamespace>WebAPI</RootNamespace>
     <Nullable>annotations</Nullable>
   </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Zooking.Infrastructure\Infrastructure.csproj"/>
     <ProjectReference Include="..\Zooking.Core\Core.csproj"/>
@@ -12,10 +11,7 @@
     <ProjectReference Include="..\Zooking.Identity\Zooking.Identity.csproj"/>
     <ProjectReference Include="..\Zooking.Infrastructure.Database\Zooking.Infrastructure.Database.csproj"/>
     <ProjectReference Include="..\Zooking.Identity.Database\Zooking.Identity.Database.csproj"/>
-
-
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Dadata" Version="20.10.0"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.14"/>
@@ -29,28 +25,23 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0"/>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.1"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.14"/>
-
-
-
-    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7"/>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="3.0.0-preview1.21075.2"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.14"/>
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.1.5"/>
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.1.5"/>
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.1.5"/>
-    <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.3" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.3"/>
+    <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.5.0"/>
+    <PackageReference Include="Microsoft.OData.Core" Version="7.7.1"/>
+    <PackageReference Include="Microsoft.Spatial" Version="7.7.1"/>
 
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="wwwroot/Assets/**"/>
   </ItemGroup>
-
-
-<ItemGroup> 
-  <Content Include="Assets\Images\**"> 
-    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory> 
-  </Content> 
-</ItemGroup>
-
+  <ItemGroup>
+    <Content Include="Assets\Images\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>

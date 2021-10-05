@@ -11,6 +11,7 @@ using System;
 using Zooking.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using Microsoft.AspNet.OData;
 
 namespace WebAPI.Controllers
 {
@@ -43,6 +44,18 @@ namespace WebAPI.Controllers
 
       return Ok(mappedEntitis);
     }
+
+
+    [HttpGet]
+    [Route("odata/all")]
+    [EnableQuery()]
+    public async Task<ActionResult<IReadOnlyList<TEntity>>> GetAllWithFiltering()
+    {
+      var entitis = await _repo.GetAll().ToListAsync();
+      var mappedEntitis = _mapper.Map<IReadOnlyList<TEntity>, IReadOnlyList<TDto>>(entitis);
+      return Ok(mappedEntitis);
+    }
+
 
 
     [HttpGet]
@@ -90,53 +103,7 @@ namespace WebAPI.Controllers
       return Ok(entity);
     }
 
-    [HttpGet("backend")]
-    public async Task<IActionResult> BackendAsync(
-            [FromQuery(Name = "s")] string? s,
-            [FromQuery(Name = "sort")] string? sort,
-            [FromQuery(Name = "page")] int? page
-        )
-    {
-      return Ok(await QueryAsync(s, sort, page));
-    }
-
-
-    public async Task<object> QueryAsync(string s, string sort, int? queryPage)
-    {
-
-      var query = _repo.GetAll();
-
-      // if (!string.IsNullOrEmpty(s))
-      // {
-      //   query = query.Where(p => p.Title.Contains(s) || p.Description.Contains(s));
-      // }
-
-      // if (sort == "asc")
-      // {
-      //   query = query.OrderBy(p => p.Price);
-      // }
-      // else if (sort == "desc")
-      // {
-      //   query = query.OrderByDescending(p => p.Price);
-      // }
-
-
-      int perPage = 3;
-      int page = queryPage.GetValueOrDefault(1) == 0 ? 1 : queryPage.GetValueOrDefault(1);
-      var total = query.Count();
-
-      return new
-      {
-        data = query.Skip((page - 1) * perPage).Take(perPage),
-        total,
-        page,
-        last_page = total / perPage
-      };
-    }
   }
 
-
-
-
-
 }
+
